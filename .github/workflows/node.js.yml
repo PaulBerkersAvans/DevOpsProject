@@ -28,6 +28,10 @@ jobs:
       run: npm ci
       working-directory: PaulsBoekenClubMembers
 
+    - name: Run ESLint
+      run: npx eslint . --ext .js,.ts,.tsx
+      working-directory: PaulsBoekenClubMembers
+
     - name: Build project
       run: npm run build --if-present
       working-directory: PaulsBoekenClubMembers
