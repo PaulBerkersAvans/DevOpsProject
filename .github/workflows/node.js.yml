@@ -39,7 +39,7 @@ jobs:
 
   coverage:
     runs-on: ubuntu-latest
-    needs: build  # Ensure coverage runs after the build job
+    needs: build
 
     steps:
       - uses: actions/checkout@v4
@@ -47,4 +47,4 @@ jobs:
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:        
           working-directory: PaulsBoekenClubMembers
-          coveragePath: PaulsBoekenClubMembers/coverage/lcov.info  # Adjust based on your coverage output path
+          coveragePath: PaulsBoekenClubMembers/coverage/lcov.info 
