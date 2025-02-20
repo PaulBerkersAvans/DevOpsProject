@@ -27,5 +27,4 @@ jobs:
       - name: Jest coverage report
         uses: ArtiomTr/jest-coverage-report-action@v2
         with:
-          coveragePath: PaulsBoekenClubMembers/coverage/lcov.info 
-        working-directory: PaulsBoekenClubMembers  
+          coveragePath: PaulsBoekenClubMembers/coverage/lcov.info
