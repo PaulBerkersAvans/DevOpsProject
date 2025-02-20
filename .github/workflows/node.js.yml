@@ -45,5 +45,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Jest coverage report
         uses: ArtiomTr/jest-coverage-report-action@v2
-        with:
+        with:        
+          working-directory: PaulsBoekenClubMembers
           coveragePath: PaulsBoekenClubMembers/coverage/lcov.info  # Adjust based on your coverage output path
