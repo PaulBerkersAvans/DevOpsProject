@@ -9,16 +9,18 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Set up Node.js
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: PaulsBoekenClubMembers/package-lock.json
           
       - name: Install dependencies
-        run: npm install
-        working-directory: PaulsBoekenClubMembers  
+        run: npm ci
+        working-directory: PaulsBoekenClubMembers
 
       - name: Run tests with coverage
         run: npm test -- --coverage
