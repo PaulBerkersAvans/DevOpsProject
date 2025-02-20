@@ -1,0 +1,31 @@
+name: 'coverage'
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'  # Change if needed
+          
+      - name: Install dependencies
+        run: npm install
+        working-directory: PaulsBoekenClubMembers  # Specify working directory here
+
+      - name: Run tests with coverage
+        run: npm test -- --coverage
+        working-directory: PaulsBoekenClubMembers  # Specify working directory here
+
+      - name: Jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          coveragePath: PaulsBoekenClubMembers/coverage/lcov.info  # Adjust as needed
+        working-directory: PaulsBoekenClubMembers  # Specify working directory here
